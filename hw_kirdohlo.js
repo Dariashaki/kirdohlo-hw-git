@@ -164,6 +164,9 @@ let plural = 'кілометр';
 if (kilometers % 1 !== 0) {
     // якщо дрібне, то завжди буде а на кінці
     plural += 'а';
+} else if (kilometers > 10 && kilometers < 20) {
+    // 11 - 19 завжди мають ів на кінці
+    plural += 'ів';
 } else {
     // знаходимо останню цифру
     const last = kilometers % 10;
