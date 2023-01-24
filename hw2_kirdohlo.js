@@ -158,15 +158,14 @@ console.log(toDelete("П'ятачок, ти приніс?"));
 
 //Завдання 9
 
-function km(meters){
-    const kilometers = meters / 1000;
-    let plural = 'кілометр';
-    if (kilometers % 1 !== 0) {
+function unitsString(value, unit) {
+    let plural = unit;
+    if (value % 1 !== 0) {
         // якщо дрібне, то завжди буде а на кінці
         plural += 'а';
     } else {
         // знаходимо останню цифру
-        const last = kilometers % 10;
+        const last = value % 10;
     
         if (last !== 1) {
             if (last >= 2 && last <= 4) {
@@ -176,7 +175,10 @@ function km(meters){
             }
         }
     }
-    return kilometers + ' ' + plural
+    return value + ' ' + plural
 }
-console.log(km(1500));
+let meters = 1500;
+let kilometers = meters / 1000;
+
+console.log(unitsString(meters, 'метр') + ' це ' + unitsString(kilometers, 'кілометр'));
 
